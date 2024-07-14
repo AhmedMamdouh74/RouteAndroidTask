@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidTask</string>
+    <string name="what_do_you_search_for">what do you search for?</string>
 </resources>

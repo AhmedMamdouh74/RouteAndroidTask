@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.AndroidTask" parent="Base.Theme.AndroidTask" />
+    <style name="textViewStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/primary_200</item>
+        <item name="android:layout_marginStart">4dp</item>
+    </style>
 </resources>
