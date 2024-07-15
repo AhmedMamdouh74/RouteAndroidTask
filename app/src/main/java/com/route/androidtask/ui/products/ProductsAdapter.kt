@@ -1,6 +1,7 @@
-package com.route.androidtask.ui
+package com.route.androidtask.ui.products
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -21,13 +22,17 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
         }
 
     }
-    private val asyncListDiffer = AsyncListDiffer(this, diffUtil)
+
+     private val asyncListDiffer = AsyncListDiffer(this, diffUtil)
+
 
     class ProductsViewHolder(private val itemBinding: ProductsItemBinding) :
         ViewHolder(itemBinding.root) {
         fun bind(productsItem: ProductsItem) {
             itemBinding.product = productsItem
             itemBinding.executePendingBindings()
+
+
             itemBinding.apply {
                     Glide.with(itemView)
                         .load(productsItem.thumbnail)
@@ -51,6 +56,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
         val data = asyncListDiffer.currentList[position]
         holder.bind(data)
     }
+
 
     fun bindProducts(productsItem: List<ProductsItem?>?) {
         asyncListDiffer.submitList(productsItem)

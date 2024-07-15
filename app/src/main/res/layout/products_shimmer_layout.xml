@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-
-        <variable
-            name="product"
-            type="com.route.domain.model.ProductsItem" />
-    </data>
-
-
-
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:shimmer_auto_start="true">
 
     <androidx.cardview.widget.CardView
 
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/product_bg"
+        android:backgroundTint="@color/neutral_grey"
         android:padding="2dp"
         app:cardCornerRadius="14dp"
         app:cardElevation="0dp"
@@ -37,26 +33,26 @@
                 app:layout_constraintBottom_toTopOf="@id/textViewProductName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@tools:sample/avatars" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageViewFavorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:src="@drawable/ic_favourite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textViewProductName"
-                style="@style/textViewStyle"
-                android:lines="1"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins"
-                android:text="@{product.title.toString()}"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/white"
+                android:lines="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageViewProduct"
@@ -64,11 +60,12 @@
 
             <TextView
                 android:id="@+id/textViewProductDescription"
-                style="@style/textViewStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="1"
-                android:text="@{product.description}"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewProductName"
@@ -76,26 +73,22 @@
 
             <TextView
                 android:id="@+id/textViewProductPrice"
-                style="@style/textViewStyle"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="@{`EGP ` + String.valueOf(product.discountPercentage)}"
-                android:textColor="@android:color/black"
-                tools:text="EGY 1800"
+                android:background="@color/white"
+                android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewProductDescription" />
 
             <TextView
                 android:id="@+id/textViewProductOldPrice"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
-                android:text="@{`EGP ` + String.valueOf(product.price)}"
-                android:textColor="@android:color/darker_gray"
+android:background="@color/white"
                 android:textSize="14sp"
-                tools:text="2000"
                 app:layout_constraintStart_toEndOf="@id/textViewProductPrice"
                 app:layout_constraintTop_toBottomOf="@id/textViewProductDescription" />
 
@@ -111,14 +104,14 @@
                 <TextView
                     android:id="@+id/textViewProductRating"
                     style="@style/textViewStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="@{`Review (` + String.valueOf(product.rating) + `)`}"
-                    android:textColor="@color/primary_200"
-                    android:textSize="12sp"
-                    tools:text="Review (4.2)" />
+                    android:background="@color/white"
+                    android:layout_marginStart="8dp"
+
+
+                    />
 
 
                 <ImageView
@@ -140,4 +133,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-</layout>
+</com.facebook.shimmer.ShimmerFrameLayout>
+
