@@ -50,23 +50,18 @@ class ProductsActivity : AppCompatActivity() {
     private fun renderProductsState(state: ResultWrapper<List<ProductsItem?>?>) {
         when (state) {
             is ResultWrapper.Error -> {
-
-
-
-                 progressDialog.dismiss()
+                progressDialog.dismiss()
                 binding.swipeRefreshLayout.isRefreshing = false
                 binding.root.showSnakeBarError(state.error.localizedMessage ?: "")
             }
 
             is ResultWrapper.Loading -> {
-
                 binding.swipeRefreshLayout.isRefreshing = false
-                   progressDialog.show()
+                progressDialog.show()
             }
 
             is ResultWrapper.Success -> {
-
-                    progressDialog.dismiss()
+                progressDialog.dismiss()
                 bindsProducts(state.data)
                 binding.swipeRefreshLayout.isRefreshing = false
 
