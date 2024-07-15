@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.route.domain.model.ProductsItem" />
+    </data>
+
+
+
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/product_bg"
+        android:padding="2dp"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/product_bg">
+
+            <ImageView
+                android:id="@+id/imageViewProduct"
+                android:layout_width="185dp"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toTopOf="@id/textViewProductName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/imageViewFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_favourite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewProductName"
+                style="@style/textViewStyle"
+                android:lines="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="@{product.title.toString()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageViewProduct"
+                tools:text="Nike Air Jordon" />
+
+            <TextView
+                android:id="@+id/textViewProductDescription"
+                style="@style/textViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@{product.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewProductName"
+                tools:text="Nike shoes flexible for wo.." />
+
+            <TextView
+                android:id="@+id/textViewProductPrice"
+                style="@style/textViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@{`EGP ` + String.valueOf(product.discountPercentage)}"
+                android:textColor="@android:color/black"
+                tools:text="EGY 1800"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewProductDescription" />
+
+            <TextView
+                android:id="@+id/textViewProductOldPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="@{`EGP ` + String.valueOf(product.price)}"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                tools:text="2000"
+                app:layout_constraintStart_toEndOf="@id/textViewProductPrice"
+                app:layout_constraintTop_toBottomOf="@id/textViewProductDescription" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewProductPrice">
+
+                <TextView
+                    android:id="@+id/textViewProductRating"
+                    style="@style/textViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@{`Review (` + String.valueOf(product.rating) + `)`}"
+                    android:textColor="@color/primary_200"
+                    android:textSize="12sp"
+                    tools:text="Review (4.2)" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_star" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewAddToCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_add_to_cart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
