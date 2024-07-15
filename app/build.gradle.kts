@@ -58,6 +58,8 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.14.2")
     annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
     implementation("com.facebook.shimmer:shimmer:0.5.0")
+    implementation("com.github.pwittchen:reactivenetwork-rx2:3.0.8")
+
 
     // hilt
     implementation("com.google.dagger:hilt-android:2.48")
