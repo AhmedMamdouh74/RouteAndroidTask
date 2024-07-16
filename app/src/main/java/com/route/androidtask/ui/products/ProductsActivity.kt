@@ -1,11 +1,13 @@
 package com.route.androidtask.ui.products
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.route.androidtask.MyApplication
 import com.route.androidtask.databinding.ActivityProductsBinding
 import com.route.androidtask.ui.common.customviews.ProgressDialog
 import com.route.androidtask.ui.showSnakeBarError
@@ -35,6 +37,7 @@ class ProductsActivity : AppCompatActivity() {
             productsViewModel.getProducts()
         }
     }
+    
 
     private fun initViewModel() {
         lifecycleScope.launch {
@@ -50,23 +53,19 @@ class ProductsActivity : AppCompatActivity() {
     private fun renderProductsState(state: ResultWrapper<List<ProductsItem?>?>) {
         when (state) {
             is ResultWrapper.Error -> {
-
-
-
-                 progressDialog.dismiss()
+                Log.d(TAG, "renderProductsState: ${state.error.localizedMessage}")
+                progressDialog.dismiss()
                 binding.swipeRefreshLayout.isRefreshing = false
                 binding.root.showSnakeBarError(state.error.localizedMessage ?: "")
             }
 
             is ResultWrapper.Loading -> {
-
                 binding.swipeRefreshLayout.isRefreshing = false
-                   progressDialog.show()
+                progressDialog.show()
             }
 
             is ResultWrapper.Success -> {
-
-                    progressDialog.dismiss()
+                progressDialog.dismiss()
                 bindsProducts(state.data)
                 binding.swipeRefreshLayout.isRefreshing = false
 

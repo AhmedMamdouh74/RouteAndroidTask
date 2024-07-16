@@ -2,10 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary">#004182</color>
+    <color name="primary">#06004F</color>
     <color name="primary_50">#80004182</color>
     <color name="primary_30">#4A004182</color>
     <color name="transparent">#00000000</color>
     <color name="primary_200">#06004F</color>
+    <color name="primary_100">#004182</color>
     <color name="neutral_grey">#9098B1</color>
+
 </resources>

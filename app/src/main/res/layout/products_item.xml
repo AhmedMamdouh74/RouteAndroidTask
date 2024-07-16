@@ -81,23 +81,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@{`EGP ` + String.valueOf(product.discountPercentage)}"
-                android:textColor="@android:color/black"
+                android:textColor="@color/primary"
                 tools:text="EGY 1800"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewProductDescription" />
 
             <TextView
                 android:id="@+id/textViewProductOldPrice"
+                style="@style/textViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
-                android:text="@{`EGP ` + String.valueOf(product.price)}"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="14sp"
+                android:text="@{String.valueOf(product.price) +` EGP` }"
                 tools:text="2000"
+                android:textColor="@color/primary_50"
                 app:layout_constraintStart_toEndOf="@id/textViewProductPrice"
                 app:layout_constraintTop_toBottomOf="@id/textViewProductDescription" />
+            <View
+                android:layout_width="55dp"
+                android:layout_height="1dp"
+                android:background="@color/primary_50"
+                app:layout_constraintStart_toStartOf="@id/textViewProductOldPrice"
+                app:layout_constraintEnd_toEndOf="@id/textViewProductOldPrice"
+                app:layout_constraintTop_toTopOf="@id/textViewProductOldPrice"
+                app:layout_constraintBottom_toBottomOf="@id/textViewProductOldPrice"
+                />
 
             <LinearLayout
                 android:id="@+id/linearLayoutRating"
@@ -116,7 +125,6 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/poppins"
                     android:text="@{`Review (` + String.valueOf(product.rating) + `)`}"
-                    android:textColor="@color/primary_200"
                     android:textSize="12sp"
                     tools:text="Review (4.2)" />
 
