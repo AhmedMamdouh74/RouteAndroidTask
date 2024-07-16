@@ -1,6 +1,7 @@
 package com.route.data.repository
 
 import com.route.data.datasourcecontract.ProductsDataSourceContract
+import com.route.data.handler.NetworkHandler
 import com.route.domain.common.ResultWrapper
 import com.route.domain.model.ProductsItem
 import com.route.domain.repository.ProductsRepo
@@ -18,10 +19,11 @@ import org.junit.Test
 class ProductsRepositoryTest {
     private lateinit var productsRepo: ProductsRepo
     private val categoryDataSourceContract = mockk<ProductsDataSourceContract>()
+    private val networkHandler=NetworkHandler()
 
     @Before
     fun setUp() {
-        productsRepo = ProductsRepoImpl(categoryDataSourceContract)
+        productsRepo = ProductsRepoImpl(categoryDataSourceContract,networkHandler)
     }
 
     @Test
