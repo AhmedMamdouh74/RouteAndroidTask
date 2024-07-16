@@ -1,8 +1,10 @@
 package com.route.data.model
 
 import androidx.annotation.Keep
+import androidx.room.Entity
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
+import com.route.data.database.ProductEntity
 import com.route.domain.model.ProductsItem
 fun <T> Any.convertTo(clazz: Class<T>): T {
     val json = Gson().toJson(this)
@@ -35,6 +37,7 @@ data class Dimensions(
     val height: Any? = null
 )
 @Keep
+
 data class ProductsItemDto(
 
     @field:SerializedName("images")
@@ -103,14 +106,16 @@ data class ProductsItemDto(
     @field:SerializedName("brand")
     val brand: String? = null
 ) {
-    fun ProductsItemDto.toProductsItem(): ProductsItem {
-        return ProductsItem(
-            price = price,
-            title = title,
-            discountPercentage = discountPercentage,
-            description = description,
-            images = images,
-            rating = rating
+    fun toEntity(): ProductEntity {
+        return ProductEntity(
+            id = id ?: 0,
+            title = title ?: "",
+            description = description ?: "",
+            price = price as? Double ?: 0.0,
+            thumbnail = thumbnail ?: "",
+            rating=rating as? Int ?: 0,
+            discountPercentage = discountPercentage as? Double ?: 0.0
+
         )
     }
 }

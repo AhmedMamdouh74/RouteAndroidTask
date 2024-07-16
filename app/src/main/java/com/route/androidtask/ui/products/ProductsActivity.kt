@@ -1,11 +1,13 @@
 package com.route.androidtask.ui.products
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.route.androidtask.MyApplication
 import com.route.androidtask.databinding.ActivityProductsBinding
 import com.route.androidtask.ui.common.customviews.ProgressDialog
 import com.route.androidtask.ui.showSnakeBarError
@@ -35,6 +37,7 @@ class ProductsActivity : AppCompatActivity() {
             productsViewModel.getProducts()
         }
     }
+    
 
     private fun initViewModel() {
         lifecycleScope.launch {
