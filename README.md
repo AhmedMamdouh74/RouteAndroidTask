@@ -11,6 +11,7 @@ Android Application consisting of only 1 Activity when the user opens the app sh
 - Repository design pattern
 - flow, ViewModel
 - Retrofit
+- Room DataBase
 - DataBinding
 - Recycler view
 - Glide for Image Loading
