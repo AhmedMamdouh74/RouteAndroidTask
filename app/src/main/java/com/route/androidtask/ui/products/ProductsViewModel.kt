@@ -9,10 +9,8 @@ import com.route.domain.common.ResultWrapper
 import com.route.domain.model.ProductsItem
 import com.route.domain.usecase.ProductsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -28,6 +26,7 @@ class ProductsViewModel @Inject constructor(
         get() = _productsState
     private val myApplication = MyApplication()
 
+
     init {
         getProducts()
     }
@@ -35,15 +34,16 @@ class ProductsViewModel @Inject constructor(
 
     fun getProducts() {
         networkHandler.isOnline.postValue(myApplication.isNetworkConnected.value)
-
+        Log.d(TAG, "getProducts: ${myApplication.isNetworkConnected.value}")
         viewModelScope.launch {
-            Log.d(TAG, "getProducts: ${myApplication.isNetworkConnected.value}")
             productsUseCase.invoke().collect { result ->
                 _productsState.value = result
             }
         }
+
     }
-    companion object{
-        const val TAG="ProductsViewModel"
+
+    companion object {
+        const val TAG = "ProductsViewModel"
     }
 }

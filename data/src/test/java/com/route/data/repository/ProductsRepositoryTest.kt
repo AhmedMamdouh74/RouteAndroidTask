@@ -27,7 +27,7 @@ class ProductsRepositoryTest {
     }
 
     @Test
-    fun `verify when call products getData it should call Products data source`() = runTest {
+    fun `verify when call getProducts it should call Products data source`() = runTest {
         val productsList = listOf(
             ProductsItem(),
             ProductsItem()

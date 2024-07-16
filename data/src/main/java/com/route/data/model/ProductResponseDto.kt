@@ -113,7 +113,7 @@ data class ProductsItemDto(
             description = description ?: "",
             price = price as? Double ?: 0.0,
             thumbnail = thumbnail ?: "",
-            rating=rating as? Int ?: 0,
+            rating=rating as? Double ?: 0.0,
             discountPercentage = discountPercentage as? Double ?: 0.0
 
         )

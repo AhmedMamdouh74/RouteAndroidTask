@@ -53,6 +53,7 @@ class ProductsActivity : AppCompatActivity() {
     private fun renderProductsState(state: ResultWrapper<List<ProductsItem?>?>) {
         when (state) {
             is ResultWrapper.Error -> {
+                Log.d(TAG, "renderProductsState: ${state.error.localizedMessage}")
                 progressDialog.dismiss()
                 binding.swipeRefreshLayout.isRefreshing = false
                 binding.root.showSnakeBarError(state.error.localizedMessage ?: "")
