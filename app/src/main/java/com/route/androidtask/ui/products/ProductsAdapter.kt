@@ -1,7 +1,6 @@
 package com.route.androidtask.ui.products
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -23,7 +22,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
 
     }
 
-     private val asyncListDiffer = AsyncListDiffer(this, diffUtil)
+    private val asyncListDiffer = AsyncListDiffer(this, diffUtil)
 
 
     class ProductsViewHolder(private val itemBinding: ProductsItemBinding) :
@@ -34,9 +33,9 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
 
 
             itemBinding.apply {
-                    Glide.with(itemView)
-                        .load(productsItem.thumbnail)
-                        .into(imageViewProduct)
+                Glide.with(itemView)
+                    .load(productsItem.thumbnail)
+                    .into(imageViewProduct)
             }
 
         }

@@ -5,5 +5,6 @@ import com.route.domain.model.ProductsItem
 import kotlinx.coroutines.flow.Flow
 
 interface ProductsDataSourceContract {
-    suspend fun getProducts(): Flow<ResultWrapper<List<ProductsItem?>?>>
+    suspend fun getProductsFromAPI(): Flow<ResultWrapper<List<ProductsItem?>?>>
+    suspend fun getProductsFromLocalDB(): Flow<ResultWrapper<List<ProductsItem?>?>>
 }
