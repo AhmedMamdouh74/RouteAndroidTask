@@ -15,8 +15,9 @@ Android Application consisting of only 1 Activity when the user opens the app sh
 - Recycler view
 - Glide for Image Loading
 ## Screen shot
-<img src="https://github.com/user-attachments/assets/7ec5cf38-3c59-489e-b826-990d1fe457e4" alt="loading products" width="250"/>
-<img src="https://github.com/user-attachments/assets/a1e1c6f4-09d1-43a0-9cd2-b0cb7501e203" alt="the cached products" width="250"/>
+
+<img src="https://github.com/user-attachments/assets/a0d49319-be96-449c-b8d0-0e7140c05a84" alt="loading products" width="250"/>
+<img src="https://github.com/user-attachments/assets/54b2af5f-e6bd-43fe-8797-fc0c00206704" alt="the cached products" width="250"/>
 
 ## UseCases
 GetProductsUseCase
